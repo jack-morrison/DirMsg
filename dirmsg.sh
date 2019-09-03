@@ -16,7 +16,7 @@ export DIRMESSAGE_MESSAGEFILE=/path/to/message/file
 export DIRMESSAGE_NOTICES_REMAINING=2
 
 # By sourcing this bash function (instead of aliasing `cd` to something else) we safely preserve any
-# existing aliases of `cd` that an end-user may already have, while stile wrapping it to add functionality.
+# existing aliases of `cd` that an end-user may already have, while still wrapping it to add functionality.
 function cd {
     # Use `builtin` to maintain all of the normal `cd` functionality.
     builtin cd "$@" || return
