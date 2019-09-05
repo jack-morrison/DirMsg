@@ -22,9 +22,9 @@ function cd {
     builtin cd "$@" || return
     
     # Check if the true path to any destination is equal to or a superstring of $DIRMESSAGE_PATH.
-    # -- Since navigating directories using symbolic links will report the link path in $PWD, a simple
-    # -- check on $PWD is not sufficient here. It's possible to be in one area of the filesystem when $PWD
-    # -- would indicate otherwise. To dereference the links, we'll rely on `readlink` being available.
+    # Since navigating directories using symbolic links will report the link path in $PWD, a simple
+    # check on $PWD is not sufficient here. It's possible to be in one area of the filesystem when $PWD
+    # would indicate otherwise. To dereference the links, we'll rely on `readlink` being available.
     case $(readlink -m $PWD)/ in
         $DIRMESSAGE_PATH*/*)
             if [[ $DIRMESSAGE_NOTICES_REMAINING -gt 0 && -f $DIRMESSAGE_MESSAGEFILE ]]; then
